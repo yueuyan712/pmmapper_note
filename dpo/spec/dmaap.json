@@ -1,0 +1,23 @@
+{
+  "dmaap_publisher": {
+    "aaf_username": "username",
+    "aaf_password": "password",
+    "type": "message_router",
+    "dmaap_info": {
+      "client_role": "org.dcae.onap.pmPublisher",
+      "client_id": "dcae@dcae.onap.org",
+      "location": "san-francisco",
+      "topic_url": "https://message-router:3905//events/org.onap.dmaap.mr.PERFORMANCE_MEASUREMENTS"
+    }
+  },
+  "dmaap_subscriber": {
+    "type": "data_router",
+    "dmaap_info": {
+      "username": "username",
+      "password": "password",
+      "location": "san-francisco",
+      "delivery_url": "https://dcae-pm-mapper:8443/delivery",
+      "subscriber_id": "1"
+    }
+  }
+}
