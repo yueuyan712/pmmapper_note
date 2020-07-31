@@ -60,8 +60,8 @@ public class Mapper {
         logger.unwrap().trace("Constructing Mapper from {}", templatesDirectory);
         templates = new HashMap<>();
         this.converter = converter;
-        Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
-        configuration.setTagSyntax(Configuration.ANGLE_BRACKET_TAG_SYNTAX);
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_28); // template里的设置
+        configuration.setTagSyntax(Configuration.ANGLE_BRACKET_TAG_SYNTAX); // 设置标记语法为尖括号
         try (Stream<Path> paths = Files.walk(templatesDirectory)) {
             paths.filter(Files::isRegularFile)
                     .forEach(template -> addTemplate(template, configuration));

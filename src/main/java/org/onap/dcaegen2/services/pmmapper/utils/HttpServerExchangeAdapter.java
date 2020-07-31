@@ -24,7 +24,7 @@ import io.undertow.server.HttpServerExchange;
 import org.onap.logging.ref.slf4j.ONAPLogAdapter.RequestAdapter;
 
 /**
- * Logging Adapter for Undertow's {@link HttpServerExchange}
+ * Logging Adapter for Undertow's {@link HttpServerExchange}   Undertow的{@link HttpServerExchange}的日志适配器
  */
 
 public class HttpServerExchangeAdapter implements RequestAdapter<HttpServerExchangeAdapter>{
@@ -32,8 +32,8 @@ public class HttpServerExchangeAdapter implements RequestAdapter<HttpServerExcha
     private final HttpServerExchange myRequest;
 
     /**
-     * Construct adapter for the request part of {@link HttpServerExchange}.
-     * @param request to be wrapped;
+     * Construct adapter for the request part of {@link HttpServerExchange}.  为{@link HttpServerExchange}的请求部分构造适配器。
+     * @param request to be wrapped;  请求将被包装
      */
     public HttpServerExchangeAdapter(final HttpServerExchange request) {
         this.myRequest = request;

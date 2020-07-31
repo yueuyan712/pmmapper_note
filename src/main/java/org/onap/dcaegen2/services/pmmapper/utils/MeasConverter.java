@@ -44,6 +44,7 @@ import org.xml.sax.XMLReader;
 
 /**
  * Converts 3GPP PM Measurement xml string to MeasCollecFil and vice versa.
+ * 将3GPP PM Measurement xml字符串转换为MeasCollecFil，反之亦然。
  **/
 public class MeasConverter {
     private static final ONAPLogAdapter logger = new ONAPLogAdapter(LoggerFactory.getLogger(MeasConverter.class));

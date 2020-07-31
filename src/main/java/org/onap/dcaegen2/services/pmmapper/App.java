@@ -62,34 +62,34 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @Data
-public class App {
-    static {
+public class App { // 主实例
+    static { //   设置指定键对值的系统属性 setProperty (String prop, String value)，可以在项目的任何一个地方 通过System.getProperty("变量")来获得。
         System.setProperty(ContextInitializer.CONFIG_FILE_PROPERTY, "/opt/app/pm-mapper/etc/logback.xml");
-    }
+    } // logback开源日志组件   通过命令行参数指定配置文件的地址
 
-    private static final ONAPLogAdapter logger = new ONAPLogAdapter(LoggerFactory.getLogger(App.class));
-    private static final int HTTP_PORT = 8081;
-    private static final int HTTPS_PORT = 8443;
+    private static final ONAPLogAdapter logger = new ONAPLogAdapter(LoggerFactory.getLogger(App.class)); // 为App初始化日志对象
+    private static final int HTTP_PORT = 8081; // http端口号
+    private static final int HTTPS_PORT = 8443; // https端口号
     private static Path templates = Paths.get("/opt/app/pm-mapper/etc/templates/");
     private static Path schemas = Paths.get("/opt/app/pm-mapper/etc/schemas/");
-
-    private MapperConfig mapperConfig;
+    // 实例化用到的对象，也就是整个流程中用到对象
+    private MapperConfig mapperConfig; 
     private MetadataFilter metadataFilter;
     private MeasConverter measConverter;
     private MeasFilterHandler filterHandler;
     private Mapper mapper;
     private MeasSplitter splitter;
     private XMLValidator validator;
-    private VESPublisher vesPublisher;
-    private DeliveryHandler deliveryHandler;
+    private VESPublisher vesPublisher; // VES发布者
+    private DeliveryHandler deliveryHandler; // 分发处理器
     private DynamicConfiguration dynamicConfiguration;
     private HealthCheckHandler healthCheckHandler;
     private int httpPort;
     private int httpsPort;
 
-    private Undertow applicationServer;
-    private List<ServerResource> serverResources;
-    private Flux<Event> flux;
+    private Undertow applicationServer; // web服务器
+    private List<ServerResource> serverResources; // 服务资源数组。其中包括访问资源需要的方法和端口号
+    private Flux<Event> flux; // flux是reactor里的
     private FluxSink<Event> fluxSink;
 
     /**
